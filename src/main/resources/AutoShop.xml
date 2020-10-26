@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:OrdersList
+	xmlns:tns="http://autoshop.com/details"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://autoshop.com/details AutoShop.xsd"
+>
+  <Order id="0">
+    <OrderInfo>
+      <Date>2001-12-31T12:00:00</Date>
+      <Status>Completed</Status>
+      <TotalPrice>31.98</TotalPrice>
+    </OrderInfo>
+    <UserInfo>
+      <Name>Name</Name>
+      <Gender>M</Gender>
+      <Email>email@mail.com</Email>
+      <BirthDate>2001-01-01</BirthDate>
+      <City>City</City>
+    </UserInfo>
+    <ShoppingCart>
+      <ShoppingCartItem id="1">
+        <Title>Title</Title>
+        <Price>15.99</Price>
+        <Count>2</Count>
+      </ShoppingCartItem>
+    </ShoppingCart>
+  </Order>
+</tns:OrdersList>

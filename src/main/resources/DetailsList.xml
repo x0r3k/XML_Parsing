@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:DetailsList
+	xmlns:tns="http://autoshop.com/details"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://autoshop.com/details AutoShop.xsd"
+>
+ 	<Detail id='1'>
+ 		<Title>Brake Pads</Title>
+ 		<Price>1129.99</Price>
+ 	</Detail>
+ 	<Detail id='2'>
+ 		<Title>Battery</Title>
+ 		<Price>199.99</Price>
+ 	</Detail>
+ 	<Detail id='3'>
+ 		<Title>Gasoline Fuel Pump</Title>
+ 		<Price>26.99</Price>
+ 	</Detail>
+</tns:DetailsList>

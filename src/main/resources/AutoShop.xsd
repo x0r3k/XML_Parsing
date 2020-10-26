@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema
+	xmlns="http://www.w3.org/2001/XMLSchema"
+ 	targetNamespace="http://autoshop.com/details"
+ 	xmlns:tns="http://autoshop.com/details"
+ >
+	<element name="DetailsList">
+        <complexType>
+			<sequence>
+				<element name="Detail" type="tns:Detail" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+    </element>
+    
+    <element name="CarsList">
+    	<complexType>
+    		<sequence>
+    			<element name="Car" type="tns:Car" maxOccurs="unbounded" />
+    		</sequence>
+    	</complexType>
+    </element>
+	
+	<element name="OrdersList">
+		<complexType>
+			<sequence>
+				<element name="Order" type="tns:Order" maxOccurs="unbounded"/>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<complexType name="Detail">
+		<complexContent>
+			<extension base="tns:Entity_ID">
+				<sequence>
+					<element name="Title" type="tns:ShortString"/>
+					<element name="Price" type="tns:Decimal8_2" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="Car">
+		<complexContent>
+			<extension base="tns:Entity_ID">
+				<sequence>
+					<element name="Brand" type="tns:ShortString"/>
+					<element name="Model" type="tns:ShortString"/>
+					<element name="Year" type="tns:Year"/>
+					<element name="Engine" type="tns:Engine"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="Engine">
+		<choice>
+			<sequence>
+				<element name="Cylinder" type="tns:NonNegativeNumber"/>
+				<element name="Capacity" type="tns:Decimal6_1"/>
+			</sequence>
+			<sequence>
+				<element name="Power" type="tns:Decimal6_1"/>
+			</sequence>
+		</choice>
+	</complexType>
+	
+	<complexType name="Order">
+		<complexContent>
+			<extension base="tns:Entity_ID">
+				<sequence>
+					<element name="OrderInfo" type="tns:OrderInfo"/>
+					<element name="UserInfo" type="tns:UserInfo"/>
+					<element name="ShoppingCart" type="tns:ShoppingCart"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="OrderInfo">
+		<sequence>
+			<element name="Date" type="tns:DateTime"/>
+			<element name="Status" type="tns:OrderStatus"/>
+			<element name="TotalPrice" type="tns:Decimal8_2"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="UserInfo">
+		<sequence>
+			<element name="Name" type="tns:ShortString"/>
+			<element name="Gender" type="tns:Gender"/>
+			<element name="Email" type="tns:Email"/>
+			<element name="BirthDate" type="tns:Date"/>
+			<element name="City" type="tns:ShortString"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ShoppingCart">
+		<sequence>
+			<element name="ShoppingCartItem" type="tns:ShoppingCartItem" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ShoppingCartItem">
+		<complexContent>
+		<extension base="tns:Entity_ID">
+			<sequence>
+				<element name="Title" type="tns:ShortString"/>
+				<element name="Price" type="tns:Decimal8_2"/>
+				<element name="Count" type="tns:NonNegativeNumber"/>
+			</sequence>
+		</extension>
+		</complexContent>
+	</complexType>
+
+	
+	<simpleType name="Year">
+		<restriction base="integer">
+	       	<maxInclusive value="2020"/>
+	       	<minInclusive value="1920"/>
+	     </restriction>
+   	</simpleType>
+	
+	<simpleType name="Email">
+		<restriction base="string">
+	       	<pattern value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})"/>
+	     </restriction>
+   	</simpleType>
+   	
+   	<simpleType name="Gender">
+		<restriction base="string">
+			<enumeration value="M" />
+			<enumeration value="F" />
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="OrderStatus">
+		<restriction base="string">
+			<enumeration value="Completed" />
+			<enumeration value="Opened" />
+			<enumeration value="Payed" />
+			<enumeration value="Canceled" />
+			<enumeration value="Returned" />
+			<enumeration value="Waiting for payment" />
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="Date">
+		<restriction base="date">
+			<minInclusive value="1900-01-01"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="DateTime">
+		<restriction base="dateTime">
+			<minInclusive value="1900-01-01T00:00:00"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="ShortString">
+		<restriction base="string">
+			<minLength value="1"/>
+			<maxLength value="45"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="LongString">
+		<restriction base="string">
+			<minLength value="1"/>
+			<maxLength value="200"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="Decimal8_2">
+		<restriction base="decimal">
+			<fractionDigits value="2"/>
+			<totalDigits value="8"/>
+			<minExclusive value="0.99"/>
+			<maxExclusive value="123456.99"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="Decimal6_1">
+		<restriction base="decimal">
+			<fractionDigits value="1"/>
+			<totalDigits value="6"/>
+			<minExclusive value="0.0"/>
+			<maxExclusive value="12345.9"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="NonNegativeNumber">
+		<restriction base="integer">
+			<minInclusive value="0"/>
+		</restriction>
+	</simpleType>
+	
+	<complexType name="Entity_ID" abstract="true">
+		<attribute name="id" type="tns:NonNegativeNumber" use="required" />
+	</complexType>
+</schema>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:OrdersList
+	xmlns:tns="http://autoshop.com/details"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://autoshop.com/details AutoShop.xsd"
+>
+
+	<Order id='1'>
+		<OrderInfo>
+			<Date>2020-09-25T09:12:22</Date>
+			<Status>Canceled</Status>
+			<TotalPrice>309.57</TotalPrice>
+		</OrderInfo>
+		<UserInfo>
+			<Name>Kirill</Name>
+			<Gender>M</Gender>
+			<Email>test@mail.com</Email>
+			<BirthDate>1917-08-27</BirthDate>
+			<City>Kharkiv</City>
+		</UserInfo>
+		<ShoppingCart>
+			<ShoppingCartItem id="1">
+				<Title>Brake pads</Title>
+				<Price>29.99</Price>
+				<Count>2</Count>
+			</ShoppingCartItem>
+			<ShoppingCartItem id="2">
+				<Title>Oxygen Sensor</Title>
+				<Price>249.59</Price>
+				<Count>1</Count>
+			</ShoppingCartItem>
+		</ShoppingCart>
+	</Order>
+	
+ 	<Order id='2'>
+		<OrderInfo>
+			<Date>2020-08-21T23:12:32</Date>
+			<Status>Completed</Status>
+			<TotalPrice>3761.95</TotalPrice>
+		</OrderInfo>
+		<UserInfo>
+			<Name>Marina</Name>
+			<Gender>F</Gender>
+			<Email>mail123@mail.com</Email>
+			<BirthDate>2000-03-16</BirthDate>
+			<City>Kyiv</City>
+		</UserInfo>
+		<ShoppingCart>
+			<ShoppingCartItem id="1">
+				<Title>Automatic Transmission</Title>
+				<Price>3609.99</Price>
+				<Count>1</Count>
+			</ShoppingCartItem>
+			<ShoppingCartItem id="2">
+				<Title>Door Handle</Title>
+				<Price>37.99</Price>
+				<Count>4</Count>
+			</ShoppingCartItem>
+		</ShoppingCart>
+	</Order>
+</tns:OrdersList>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:CarsList
+	xmlns:tns="http://autoshop.com/details"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://autoshop.com/details AutoShop.xsd"
+>
+ 	<Car id='1'>
+ 		<Brand>Mazda</Brand>
+ 		<Model>CX-7</Model>
+ 		<Year>2012</Year>
+ 		<Engine>
+ 			<Cylinder>4</Cylinder>
+ 			<Capacity>2.5</Capacity>
+ 		</Engine>
+ 	</Car>
+ 	<Car id='2'>
+ 		<Brand>Toyota</Brand>
+ 		<Model>Camry</Model>
+ 		<Year>2015</Year>
+ 		<Engine>
+ 			<Cylinder>6</Cylinder>
+ 			<Capacity>3.5</Capacity>
+ 		</Engine>
+ 	</Car>
+ 	<Car id='3'>
+ 		<Brand>Tesla</Brand>
+ 		<Model>X</Model>
+ 		<Year>2017</Year>
+ 		<Engine>
+ 			<Power>250</Power>
+ 		</Engine>
+ 	</Car>
+</tns:CarsList>
